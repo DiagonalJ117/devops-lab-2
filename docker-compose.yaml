@@ -1,0 +1,24 @@
+version: '3'
+services:
+  website:
+    container_name: devops_web_container
+    build: .
+    ports:
+      - "8080:80"
+    networks:
+      - devops_net
+      
+  mysql:
+    container_name: devops_db_container
+    image: mysql:latest
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: governator333
+    networks:
+      - devops_net
+
+networks:
+  devops_net:
+
+
